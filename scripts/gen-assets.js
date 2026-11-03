@@ -1,4 +1,4 @@
-// Generates the SVG assets (header + tech stack) for the inoueUJ profile README.
+// Generates the SVG assets (tech stack) for the inoueUJ profile README.
 // Usage: npm i simple-icons@13 && node scripts/gen-assets.js .
 const fs = require('fs');
 const path = require('path');
@@ -14,33 +14,6 @@ const THEMES = {
   dark: { bg: '#0d1117', card: '#161b22', border: '#30363d', text: '#e6edf3', sub: '#9198a1', chip: '#21262d', chipText: '#c9d1d9' },
   light: { bg: '#ffffff', card: '#f6f8fa', border: '#d1d9e0', text: '#1f2328', sub: '#59636e', chip: '#ffffff', chipText: '#1f2328' },
 };
-
-// ---------- header ----------
-function header(t, mode) {
-  const W = 880, H = 220;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="${mode === 'dark' ? '#1e1b4b' : '#eef2ff'}"/>
-      <stop offset="0.55" stop-color="${mode === 'dark' ? '#0f172a' : '#f8fafc'}"/>
-      <stop offset="1" stop-color="${mode === 'dark' ? '#082f49' : '#ecfeff'}"/>
-    </linearGradient>
-    <radialGradient id="b1" cx="0.85" cy="0.15" r="0.5"><stop offset="0" stop-color="#8b5cf6" stop-opacity="${mode === 'dark' ? 0.55 : 0.28}"/><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/></radialGradient>
-    <radialGradient id="b2" cx="0.7" cy="1" r="0.5"><stop offset="0" stop-color="#06b6d4" stop-opacity="${mode === 'dark' ? 0.45 : 0.25}"/><stop offset="1" stop-color="#06b6d4" stop-opacity="0"/></radialGradient>
-    <linearGradient id="tg" x1="0" x2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
-    <clipPath id="c"><rect width="${W}" height="${H}" rx="24"/></clipPath>
-  </defs>
-  <g clip-path="url(#c)">
-    <rect width="${W}" height="${H}" fill="url(#g)"/>
-    <rect width="${W}" height="${H}" fill="url(#b1)"/>
-    <rect width="${W}" height="${H}" fill="url(#b2)"/>
-  </g>
-  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="24" fill="none" stroke="${t.border}" stroke-opacity="0.6"/>
-  <text x="48" y="72" font-family="${FONT}" font-size="16" fill="${t.sub}" letter-spacing="2">FUKUOKA, JAPAN · SOFTWARE ENGINEER</text>
-  <text x="48" y="124" font-family="${FONT}" font-size="44" font-weight="700" fill="${t.text}">Yuji Inoue <tspan fill="url(#tg)">/ いのうぇい</tspan></text>
-  <text x="48" y="166" font-family="${FONT}" font-size="19" fill="${t.sub}">作って、旅先で使って、失敗から次を作るエンジニア。AI を道具に組み込むのが好き。</text>
-</svg>`;
-}
 
 // ---------- tech stack (icons style: bare logos grouped by area) ----------
 const GROUPS = [
@@ -76,7 +49,6 @@ function stack(t, mode) {
 
 for (const mode of ['dark', 'light']) {
   const t = THEMES[mode];
-  fs.writeFileSync(path.join(OUT, 'assets', `header-${mode}.svg`), header(t, mode));
   fs.writeFileSync(path.join(OUT, 'assets', `stack-${mode}.svg`), stack(t, mode));
 }
 console.log('ok');
