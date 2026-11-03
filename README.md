@@ -1,0 +1,19 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/header-dark.svg">
+  <img alt="Yuji Inoue / いのうぇい" src="./assets/header-light.svg" width="100%">
+</picture>
+
+## 👋 About
+
+- 📍 福岡で働くソフトウェアエンジニア
+- 📷 カメラと 🖨️ 3Dプリンターにハマってイルッ！！！
+- ✈️ ひとり旅が好き（スリランカ、タイ・ラオス）
+- 🤖 AI でいろいろ作って遊んでいます
+- 📝 たまに書いてます → [Zenn](https://zenn.dev/inouji)
+
+## 🧰 Tech Stack
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/stack-dark.svg">
+  <img alt="Tech stack: TypeScript, React, Next.js, Vue, Flutter, Python, Cloudflare, Claude and more" src="./assets/stack-light.svg" width="100%">
+</picture>
